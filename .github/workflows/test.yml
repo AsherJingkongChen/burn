@@ -152,11 +152,12 @@ jobs:
           cache-key: ${{ matrix.rust }}-linux
       # --------------------------------------------------------------------------------
       - name: Setup Linux runner
-        uses: tracel-ai/github-actions/setup-linux@v1
+        uses: tracel-ai/github-actions/setup-linux@v1.3.0
         with:
           vulkan-sdk-version: ${{ env.VULKAN_SDK_VERSION }}
           mesa-version: ${{ env.MESA_VERSION }}
           mesa-ci-build-version: ${{ env.MESA_CI_BINARY_BUILD }}
+          cargo-package-to-clean: burn-tch
       # --------------------------------------------------------------------------------
       - name: Install grcov
         if: matrix.rust == 'stable'
@@ -200,7 +201,7 @@ jobs:
           cache-key: ${{ matrix.rust }}-linux-no-std
       # --------------------------------------------------------------------------------
       - name: Setup Linux runner
-        uses: tracel-ai/github-actions/setup-linux@v1
+        uses: tracel-ai/github-actions/setup-linux@v1.3.0
         with:
           vulkan-sdk-version: ${{ env.VULKAN_SDK_VERSION }}
           mesa-version: ${{ env.MESA_VERSION }}
